@@ -1,19 +1,18 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import utils.ListUtil;
 
 public class Q18 {
 
 	public static void main(String[] args) {
 		final int LENGTH = 10;
 		List<Integer> list = new ArrayList<>();
-		for (int i = 0; i < LENGTH;i++) {
-			list.add(i);
-		}
-		Collections.shuffle(list);
+		//ランダム値のリストを設定
+		ListUtil.setRandomNumbers(list, LENGTH);
 		//入れ替え前状態出力
-		display(list);
-		
+		ListUtil.display(list);
+
 		for (int i = 0; i < LENGTH; i++) {
 			int min = LENGTH -1;
 			int minIndex = LENGTH - 1;
@@ -26,23 +25,12 @@ public class Q18 {
 				}
 			}
 			//先頭入れ替え
-			swap(i, minIndex, list);
-			display(list);
+			ListUtil.swap(i, minIndex, list);
+			ListUtil.display(list);
 		}
-		display(list);
+		ListUtil.display(list);
 	}
-	
-	private static void swap(int index1, int index2, List<Integer> list) {
-		int buffer = list.get(index1);
-		list.set(index1, list.get(index2));
-		list.set(index2, buffer);
-	}
-	
-	private static void display(List<Integer> list) {
-		for (int number : list) {
-			System.out.print(number + " ");
-		}
-		System.out.println();
-	}
+
+
 
 }
