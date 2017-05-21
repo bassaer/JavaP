@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import utils.BubbleSort;
 import utils.ListUtil;
 
 public class Q19 {
@@ -11,17 +12,9 @@ public class Q19 {
 		ListUtil.setRandomNumbers(list, LENGTH);
 		ListUtil.display(list);
 		
-		for (int i = 0; i < LENGTH; i++) {
-			for (int j = LENGTH - 1; j > i; j --) {
-				int prevNumber = list.get(j);
-				int nextNumber = list.get(j - 1);
-				if ( prevNumber < nextNumber) {
-					ListUtil.swap(j, j - 1, list);
-					
-				}
-				ListUtil.display(list);
-			}
-		}
+		BubbleSort bubbleSort = new BubbleSort(list);
+		bubbleSort.setShowLog(true);
+		bubbleSort.sort();
 		ListUtil.display(list);
 	}
 

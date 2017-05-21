@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import utils.ListUtil;
+import utils.SelectionSort;
 
 public class Q18 {
 
@@ -13,21 +14,10 @@ public class Q18 {
 		//入れ替え前状態出力
 		ListUtil.display(list);
 
-		for (int i = 0; i < LENGTH; i++) {
-			int min = LENGTH -1;
-			int minIndex = LENGTH - 1;
-			for (int j = i; j < LENGTH; j++) {
-				int number = list.get(j);
-				//最小値探索
-				if (min > number) {
-					min = number;
-					minIndex = j;
-				}
-			}
-			//先頭入れ替え
-			ListUtil.swap(i, minIndex, list);
-			ListUtil.display(list);
-		}
+		SelectionSort selectionSort = new SelectionSort(list);
+		selectionSort.setShowLog(true);
+		selectionSort.sort();;
+
 		ListUtil.display(list);
 	}
 
