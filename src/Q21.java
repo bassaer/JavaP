@@ -25,6 +25,7 @@ public class Q21 {
 		initialize(input);
 		display();
 		hanoi(input, 0, 2, 1);
+		scanner.close();
 	}
 
 	public static void move(int from , int to) {
@@ -33,13 +34,23 @@ public class Q21 {
 		counter++;
 	}
 
+	/**
+	 * 円盤の移動
+	 * @param height 高さ
+	 * @param from 移動元
+	 * @param to 移動先
+	 * @param work 作業スペース
+	 */
 	public static void hanoi(int height, int from, int to, int work) {
 		if (height == 0) {
 			return;
 		}
+		//h-1枚をfromからworkへ
 		hanoi(height - 1, from, work, to);
+		//h番目の円盤をfromからtoへ
 		move(from, to);
 		display();
+		//h-1枚をworkからtoへ
 		hanoi(height - 1, work, to, from);
 
 	}
